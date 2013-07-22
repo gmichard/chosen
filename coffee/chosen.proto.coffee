@@ -10,12 +10,18 @@ class Chosen extends AbstractChosen
     @form_field.addClassName "chzn-done"
 
   set_default_values: ->
+    this.set_options()
+
     super()
 
     # HTML Templates
     @single_temp = new Template('<a href="javascript:void(0)" class="chzn-single chzn-default" tabindex="-1"><span>#{default}</span><div><b></b></div></a><div class="chzn-drop"><div class="chzn-search"><input type="text" autocomplete="off" /></div><ul class="chzn-results"></ul></div>')
     @multi_temp = new Template('<ul class="chzn-choices"><li class="search-field"><input type="text" value="#{default}" class="default" autocomplete="off" style="width:25px;" /></li></ul><div class="chzn-drop"><ul class="chzn-results"></ul></div>')
     @no_results_temp = new Template('<li class="no-results">' + @results_none_found + ' "<span>#{terms}</span>"</li>')
+
+  set_options: () ->
+    for option of AbstractChosen.default_options
+      @options[option] = @options[option] || Chosen.default_options[option] || AbstractChosen.default_options[option]
 
   set_up_html: ->
     container_classes = ["chzn-container"]
