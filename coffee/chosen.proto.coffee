@@ -12,7 +12,7 @@ class @Chosen extends AbstractChosen
     @multi_temp = new Template('<ul class="chosen-choices"><li class="search-field"><input type="text" value="#{default}" class="default" autocomplete="off" style="width:25px;" /></li></ul><div class="chosen-drop"><ul class="chosen-results"></ul></div>')
     @no_results_temp = new Template('<li class="no-results">' + @results_none_found + ' "<span>#{terms}</span>".</li>')
     @new_option_temp = new Template('<option value="#{value}">#{text}</option>')
-    @create_option_temp = new Template('<li class="create-option active-result"><a href="javascript:void(0);">#{text}</a>: "#{terms}"</li>')
+    @create_option_temp = new Template('<li class="create-option active-result"><a>#{text}</a>: "#{terms}"</li>')
 
   set_up_html: ->
     container_classes = ["chosen-container"]
